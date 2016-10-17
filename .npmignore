@@ -1,0 +1,6 @@
+aot
+src
+.gitignore
+.npmignore
+tsconfig.json
+tslint.json
