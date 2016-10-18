@@ -120,5 +120,5 @@ export interface InMemoryWebApiConfig {
 
   filter: string;
 
-  useJwt: boolean;
+  useJwt?: boolean;
 }
