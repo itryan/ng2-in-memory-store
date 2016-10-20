@@ -9,7 +9,7 @@
     "packageJSON": "copyfiles package.json dist",
     "clean:dist": "npm run rimraf -- dist",
     "build": "npm run clean:dist && ngc && npm run packageJSON",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish dist && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -17,11 +17,7 @@
   },
   "keywords": [],
   "author": "",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/core": "^2.0.0",
     "@angular/http": "^2.0.0"
@@ -29,7 +25,7 @@
   "devDependencies": {
     "@angular/common": "~2.0.0",
     "@angular/compiler": "~2.0.0",
-    "@angular/compiler-cli": "~2.0.0",
+    "@angular/compiler-cli": "~2.0.0 || ^0.6.2",
     "@angular/core": "~2.0.0",
     "@angular/http": "~2.0.0",
     "@angular/platform-browser": "~2.0.0",
