@@ -6,7 +6,7 @@ import { RequestInfo, InMemoryWebApiConfig } from './models';
 import { HttpUtil, ListUtil } from './utils';
 import { UnTypedInMemoryDbService, InMemoryDbService } from './in-memory-db.service';
 import { UrlParametersParserConfig, UrlParametersParser } from './url-parameters';
-import _ from 'underscore'
+import _ from 'lodash'
 
 export abstract class UnTypedInMemoryWebApi {
 
