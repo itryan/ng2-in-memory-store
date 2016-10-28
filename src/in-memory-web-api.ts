@@ -140,6 +140,7 @@ export abstract class UnTypedInMemoryWebApi {
     let headers = reqInfo.headers;
 
     if (id) {
+      id = +id;
       data = ListUtil.findById(data, id);
     } else if (query && this.paramsParser) {
       let params = this.paramsParser.parse(query);
