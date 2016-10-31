@@ -50,12 +50,12 @@ export abstract class UnTypedInMemoryWebApi {
   }
 
   protected beforeHandleRequest(reqInfo: RequestInfo) {
-    if (this.config.useJwt){
+    if (this.config.useJwt) {
       this.handleJwt(reqInfo);
     }
   }
 
-  protected handleJwt(reqInfo: RequestInfo){
+  protected handleJwt(reqInfo: RequestInfo) {
     let req = reqInfo.req;
     let bearer = req.headers.get('Authorization');
     if (bearer && bearer.indexOf('Bearer ') > -1) {
@@ -190,7 +190,33 @@ export abstract class UnTypedInMemoryWebApi {
     }
   }
 
+  /**
+   * Put and simply replace the given item
+   */
   protected tryCollectionPut({id, collectionName, headers, req}: RequestInfo, collection: any[]) {
+    const data = JSON.parse(<string>req.text());
+
+    let col = collection;
+    let index = _.findIndex(col, (item) => item['id'] == id);
+
+    if (index == -1) {
+      return new ResponseOptions({
+        body: { msg: 'unable to find item with id: ' + id },
+        headers: headers,
+        status: STATUS.NOT_FOUND
+      });
+    }
+
+    col[index] = data;
+
+    return new ResponseOptions({
+      body: { data: data },
+      headers: headers,
+      status: STATUS.OK
+    });
+  }
+
+  protected tryCollectionBatchPut({id, collectionName, headers, req}: RequestInfo, collection: any[]) {
 
     const data = JSON.parse(<string>req.text());
     let ids: number[] = data ? data.ids : [];
@@ -249,8 +275,8 @@ export abstract class InMemoryWebApi<T> extends UnTypedInMemoryWebApi {
         resp = this.handleAuth(reqInfo);
         break;
       //case "logout":
-        // resp = this.handleAuth(reqInfo);
-        // break;
+      // resp = this.handleAuth(reqInfo);
+      // break;
     }
 
     return resp;
