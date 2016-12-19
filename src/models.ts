@@ -68,7 +68,7 @@ export class InMemoryBackendConfig implements InMemoryBackendConfigArgs {
       defaultResponseOptions: new BaseResponseOptions(),
       delay: 500,
       delete404: false,
-      passThruUnknownUrl: false,
+      passThruUnknownUrl: true,
       host: '',
       rootPath: ''
     }, config);

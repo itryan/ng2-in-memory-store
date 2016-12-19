@@ -8,8 +8,8 @@
     "lint": "tslint ./src/*.ts -t verbose",
     "test": "exit 0",
     "clean:dist": "rimraf -- dist",
-    "build": "npm run clean:dist && tsc",
-    "semantic-release": "semantic-release pre && npm publish dist && semantic-release post"
+    "build": "npm run clean:dist && ngc",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
     "rimraf": "^2.5.4",
     "rxjs": "5.0.0-rc.4",
     "tslint": "^4.1.1",
-    "typescript": "^2.1.4",
+    "typescript": "2.0.10",
     "zone.js": "^0.7.2",
     "semantic-release": "^6.3.5"
   },  

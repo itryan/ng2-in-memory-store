@@ -1,4 +1,4 @@
-import { RequestMethod, ResponseOptions } from '@angular/http';
+import { Headers, RequestMethod, ResponseOptions } from '@angular/http';
 import 'rxjs/add/operator/delay';
 
 import { STATUS } from './http-status-codes';
@@ -132,7 +132,7 @@ export abstract class UnTypedInMemoryWebApi {
     return resOptions;
   }
 
-  protected tryCollectionGet(reqInfo: RequestInfo, collection: any[]) {
+  protected tryCollectionGet(reqInfo: RequestInfo, collection: any[]):ResponseOptions {
     let data = collection;
     let id = reqInfo.id;
     let query = reqInfo.query;

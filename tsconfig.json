@@ -14,11 +14,11 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "src",
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules",
+    "index.d.ts",
     "aot"
   ],
   "angularCompilerOptions": {

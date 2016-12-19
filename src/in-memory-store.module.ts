@@ -10,6 +10,8 @@ export function inMemoryBackendServiceFactory(injector: Injector, apiService: Un
   return (<XHRBackend>backend);
 }
 
+export const DefaultBankendConfig: InMemoryBackendConfig = new InMemoryBackendConfig();
+
 @NgModule({
   providers: [{
     provide: XHRBackend,
@@ -18,7 +20,7 @@ export function inMemoryBackendServiceFactory(injector: Injector, apiService: Un
   }]
 })
 export class InMemoryStoreModule {
-  static forRoot(webApi: UnTypedInMemoryWebApi, options?: InMemoryBackendConfigArgs): ModuleWithProviders {
+  static forRoot(webApi: UnTypedInMemoryWebApi, options: InMemoryBackendConfigArgs = DefaultBankendConfig): ModuleWithProviders {
     return {
       ngModule: InMemoryStoreModule,
       providers: [

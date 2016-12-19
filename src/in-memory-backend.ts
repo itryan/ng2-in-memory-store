@@ -1,4 +1,4 @@
-import { Inject, Injector, Optional } from '@angular/core';
+import { Inject, Injector, Injectable, Optional } from '@angular/core';
 import { BrowserXhr, Connection, ConnectionBackend,
          Headers, ReadyState, Request, RequestMethod,
          Response, ResponseOptions, URLSearchParams,
@@ -14,6 +14,7 @@ import { UnTypedInMemoryWebApi } from './in-memory-web-api'
 
 import { InMemoryBackendConfigArgs, InMemoryBackendConfig, HttpMethodInterceptorArgs } from './models'
 
+@Injectable()
 export class InMemoryBackend {
   protected passThruBackend: ConnectionBackend;
   protected config: InMemoryBackendConfigArgs = new InMemoryBackendConfig();
